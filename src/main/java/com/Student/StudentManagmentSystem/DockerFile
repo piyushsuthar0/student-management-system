@@ -1,0 +1,14 @@
+# Use official OpenJDK image as base
+FROM openjdk:17-jdk-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy the jar file (assuming your final jar is named student-management-system-0.0.1-SNAPSHOT.jar)
+COPY target/student-management-system-0.0.1-SNAPSHOT.jar app.jar
+
+# Expose the port your app runs on
+EXPOSE 8080
+
+# Run the jar file
+ENTRYPOINT ["java", "-jar", "app.jar"]
